@@ -44,6 +44,22 @@ app = FastAPI(
 )
 
 
+@app.get("/", tags=["estado"])
+async def raiz() -> dict:
+    """Página raíz informativa de la API (sin auth)."""
+    return {
+        "servicio": "RAR Descompresor API",
+        "version": "1.0.0",
+        "endpoints": {
+            "GET /health": "estado del servicio y motores detectados",
+            "GET /auth/api-key": "obtener la API key vigente (para n8n)",
+            "POST /auth/api-key/rotate": "rotar la API key (requiere X-API-Key)",
+            "POST /descomprimir": "descomprimir un .rar (requiere X-API-Key)",
+        },
+        "docs": "/docs",
+    }
+
+
 @app.get("/health", response_model=HealthResponse, tags=["estado"])
 async def health() -> HealthResponse:
     """Estado del servicio y motores de extracción detectados (sin auth)."""

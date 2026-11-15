@@ -1,0 +1,23 @@
+# Datos locales y secretos (API key generada en runtime)
+data/
+.env
+
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Archivos RAR / ZIP de prueba
+*.rar
+*.zip
+
+# Sistema / editores
+.DS_Store
+.idea/
+.vscode/
